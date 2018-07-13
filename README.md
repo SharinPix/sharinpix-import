@@ -10,7 +10,7 @@ $ npm install --save sharinpix-import
 #### Example of code :
 ``` javascript
 sharinpixImport = require('sharinpix-import');
-sharinpixImport.importAlbum('albums.csv', 'success.csv', 'error.csv');
+sharinpixImport.importAlbum('albums.csv');
 ```
 ### Command-line Usage
 
@@ -21,7 +21,7 @@ $ npm install -g sharinpix-import
 ```
 
 ```sh
-$ sharinpix-import albums.csv success.csv error.csv
+$ sharinpix-import albums.csv > success.csv 2> error.csv
 ```
 
 - ``` albums.csv ``` refers to the  path of the file containing the images to be imported.
