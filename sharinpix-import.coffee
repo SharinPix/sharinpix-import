@@ -4,7 +4,7 @@ sharinpix = require 'sharinpix'
 async = require 'async'
 _ = require 'lodash'
 
-importAlbum = (path)->
+importImages = (path)->
   readStream = fs.createReadStream path
   albums = []
   import_id = Math.round(Math.random()*10000)
@@ -20,13 +20,13 @@ importAlbum = (path)->
         console.error "#{album_id};#{url};#{tags};#{metadatas}"
       unless errorFlag
         albums.push async.reflect (callback) ->
-          metadatas = _.merge(import_id: import_id, json)
+          json['import_id'] = import_id
           sharinpix.get_instance().post '/imports',
             import_type: 'url'
             album_id: album_id
             url: url
             tags: _.split(tags, ',')
-            metadatas: metadatas
+            metadatas: json
           .then (res)->
             { album_id, url, tags, metadatas } = res.params
             console.log "#{album_id};#{url};#{tags};#{JSON.stringify metadatas}"
@@ -38,4 +38,4 @@ importAlbum = (path)->
             console.error "#{album_id};#{url};#{tags};#{metadatas}"
     .on 'end', ->
       async.parallelLimit albums, 10
-module.exports = importAlbum
+module.exports = importImages
