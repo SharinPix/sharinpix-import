@@ -3,18 +3,11 @@
 ### Code usage
 
 #### Installation
-```sh 
-$ npm install --save sharinpix-import
+```sh
+$ npm install -g --save sharinpix-import
 ```
 
-#### Example of code :
-``` javascript
-sharinpixImport = require('sharinpix-import');
-sharinpixImport.importAlbum('albums.csv');
-```
-### Command-line Usage
-
-#### Installation
+#### Usage
 
 ```sh
 $ npm install -g sharinpix-import
@@ -29,6 +22,8 @@ $ sharinpix-import albums.csv > success.csv 2> error.csv
 -  ``` error.csv ``` refers to the path of the error log file containing only images that failed to be imported.
 
 The structure of the ``` albums.csv ``` file should be in the following form:
+
+{"key":"value"} are metadatas to add to the images (as a json hash).
 
 ```
 album_id_1;image_url_1;tag1,tag2,tag3;{"key":"value"}
