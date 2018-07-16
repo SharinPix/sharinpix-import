@@ -14,7 +14,7 @@ $ npm install -g sharinpix-import
 ```
 
 ```sh
-$ sharinpix-import sample.csv > success.csv 2> error.csv
+$ env SHARINPIX_URL=sharinpix://secret_url_you_can_find_in_your_admin_dashboard sharinpix-import sample.csv > success.csv 2> error.csv
 ```
 
 - ``` sample.csv ``` refers to the  path of the file containing the images to be imported.
