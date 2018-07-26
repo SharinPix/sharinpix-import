@@ -1,6 +1,6 @@
 {
   "name": "sharinpix-import",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Lightweight Node Package to import images using SharinPix.",
   "main": "sharinpix-import",
   "scripts": {
