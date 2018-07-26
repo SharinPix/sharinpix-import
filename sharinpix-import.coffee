@@ -13,6 +13,7 @@ importImages = (path)->
     .fromStream readStream, delimiter: ';'
     .on 'data', (data)->
       [album_id, url, tags, metadatas] = _.values data
+      metadatas = '{}' if not metadatas? || metadatas == ''
       try
         json = JSON.parse metadatas
       catch error
